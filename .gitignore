@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+*.iws
+.idea_modules/
+
+# VS Code
+.vscode/
+*.code-workspace
+.history/
+
+# Model weights and outputs
+weights/
+outputs/
+runs/
+slurm_logs/
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.tar.gz
+
+# Logs and temp files
+logs/
+*.log
+.DS_Store
+Thumbs.db
+.ipynb_checkpoints/
+experiment_jobs.log
+
+# Supercloud specific
+*.out
+*.err

@@ -1,0 +1,59 @@
+# Configuration for PreLN experiment
+output_dir: "outputs/preln"
+
+model:
+  # Model architecture (using LLaMA-71M)
+  vocab_size: 32000
+  hidden_size: 512
+  intermediate_size: 2048
+  num_hidden_layers: 8
+  num_attention_heads: 8
+  max_position_embeddings: 2048
+  rms_norm_eps: 1e-6
+  attention_dropout: 0.0
+  hidden_dropout: 0.1
+  
+  # Normalization configuration
+  norm_type: "layernorm"  # Use standard LayerNorm
+  norm_position: "pre"    # Pre-LayerNorm architecture
+
+data:
+  dataset_name: "wikitext"
+  dataset_config: "wikitext-103-raw-v1"
+  tokenizer_path: "facebook/llama-7b"
+  max_length: 512
+  stride: 256
+  batch_size: 16
+  num_workers: 4
+  pin_memory: true
+  val_split: 0.05
+  
+  # Random warmup data configuration
+  random_warmup_size: 10000
+
+training:
+  # Basic training parameters
+  num_epochs: 3
+  learning_rate: 5.0e-5
+  weight_decay: 0.01
+  beta1: 0.9
+  beta2: 0.999
+  eps: 1.0e-8
+  
+  # Scheduler configuration
+  scheduler: "cosine"
+  warmup_steps: 500
+  
+  # Warmup on random data
+  warmup_epochs: 0
+  random_warmup: false  # No random warmup for baseline
+  
+  # Optimizer
+  optimizer: "adamw"
+  
+  # Gradient and logging parameters
+  gradient_accumulation_steps: 1
+  max_grad_norm: 1.0
+  log_interval: 10
+  save_interval: 1000
+  eval_interval: 500
